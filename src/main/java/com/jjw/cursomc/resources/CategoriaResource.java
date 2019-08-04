@@ -29,7 +29,6 @@ public class CategoriaResource {
 		list.add(cat1);
 		list.add(cat2);*/
 		
-		
 		return ResponseEntity.ok().body(obj);
 	}
 
