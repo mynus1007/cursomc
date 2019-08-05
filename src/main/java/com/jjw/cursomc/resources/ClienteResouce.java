@@ -21,8 +21,10 @@ public class ClienteResouce {
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Cliente obj = service.buscar(id);
 		
-		
-		return ResponseEntity.ok().body(obj);
+		if(obj==null) {
+			return ResponseEntity.ok().body(obj);			
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 }

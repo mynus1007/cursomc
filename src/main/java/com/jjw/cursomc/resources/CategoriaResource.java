@@ -22,14 +22,11 @@ public class CategoriaResource {
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Categoria obj = service.buscar(id);
-		
-		/*Categoria cat1 = new Categoria(1, "Informática");
-		Categoria cat2 = new Categoria(2, "Informática");
-		List<Categoria> list = new ArrayList<>();
-		list.add(cat1);
-		list.add(cat2);*/
-		
-		return ResponseEntity.ok().body(obj);
+		if(obj==null) {
+			return ResponseEntity.ok().body(obj);	
+		}
+			
+			return ResponseEntity.notFound().build();
 	}
 
 }
